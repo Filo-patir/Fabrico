@@ -11,6 +11,7 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
+import com.filonKiro.fabrico.presentation.cart.CartScreen
 import com.filonKiro.fabrico.presentation.ui.theme.ComposeAndMVITheme
 import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
@@ -23,15 +24,9 @@ class MainActivity : ComponentActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        enableEdgeToEdge()
         setContent {
             ComposeAndMVITheme {
-                Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
-                    Greeting(
-                        name = userName,
-                        modifier = Modifier.padding(innerPadding)
-                    )
-                }
+                CartScreen()
             }
         }
     }

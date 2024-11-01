@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <style name="Theme.Fabrico" parent="android:Theme.Material.Light.NoActionBar" />
+    <style name="Theme.Fabrico" parent="android:Theme.Material.Light.NoActionBar" >
+
+        <item name="fontFamily">@font/inter_regular</item>
+
+    </style>
 </resources>
