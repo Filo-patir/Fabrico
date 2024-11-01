@@ -1,6 +1,9 @@
 package com.filonKiro.fabrico.presentation.cart
 
+import android.widget.Toast
+import androidx.compose.foundation.background
 import androidx.compose.foundation.border
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -17,6 +20,7 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
@@ -27,6 +31,7 @@ import androidx.compose.ui.unit.sp
 import coil.compose.AsyncImage
 import coil.request.ImageRequest
 import com.filonKiro.fabrico.R
+import com.filonKiro.fabrico.presentation.ui.theme.interFontFamily
 
 @Composable
 fun CartScreen(modifier: Modifier = Modifier) {
@@ -63,7 +68,8 @@ fun CartTopAppBar(modifier: Modifier = Modifier) {
             modifier = Modifier.align(Alignment.Center),
             text = "My Cart",
             fontSize = 25.sp,
-            fontWeight = FontWeight.Bold
+            fontWeight = FontWeight.Bold,
+            fontFamily = interFontFamily
         )
         CommonBackButton()
     }
@@ -73,25 +79,21 @@ fun CartTopAppBar(modifier: Modifier = Modifier) {
 fun CommonBackButton(modifier: Modifier = Modifier) {
     Box(
         modifier = modifier
-            .size(40.dp)
+            .size(50.dp)
             .padding(5.dp),
         contentAlignment = Alignment.Center
     ) {
-        Button(
+        val context = LocalContext.current
+        Icon(
             modifier = modifier
                 .fillMaxSize()
                 .border(1.dp, Color.LightGray, CircleShape)
-                ,
-            onClick = { /*TODO*/ },
-            shape = CircleShape,
-            colors = ButtonDefaults.buttonColors(
-                containerColor = Color.White
-            )
-        ) {
-
-        }
-        Icon(
-            modifier = modifier.fillMaxSize(),
+                .clickable {
+                    Toast
+                        .makeText(context, "Kerolos", Toast.LENGTH_SHORT)
+                        .show()
+                }
+                .padding(5.dp),
             painter = painterResource(id = R.drawable.icon_arrow_back_long),
             contentDescription = null,
             tint = Color.Black
