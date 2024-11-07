@@ -40,7 +40,7 @@ fun CartItem(modifier: Modifier = Modifier) {
     Column(
         modifier = modifier
             .fillMaxWidth()
-            .height(130.dp)
+            .fillMaxHeight()
     ) {
         Row (
             modifier = modifier
