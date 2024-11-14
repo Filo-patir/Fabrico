@@ -111,6 +111,14 @@ dependencies {
     //Pagination
     implementation(libs.androidx.paging.runtime.ktx)
 
+    //Authentication
+    // Import the BoM for the Firebase platform
+    implementation(platform(libs.firebase.bom))
+
+    // Add the dependency for the Firebase Authentication library
+    // When using the BoM, you don't specify versions in Firebase library dependencies
+    implementation(libs.firebase.auth)
+
     //Hilt
     implementation(libs.hilt.android)
     kapt(libs.hilt.android.compiler)
